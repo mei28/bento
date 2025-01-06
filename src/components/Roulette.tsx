@@ -9,7 +9,7 @@ export const Roulette = ({ onSpin }: { onSpin: () => void }) => {
     setTimeout(() => {
       onSpin();
       setSpinning(false);
-    }, 2000); // ルーレットアニメーションのシミュレーション
+    }, 1000); // ルーレットアニメーションのシミュレーション
   };
 
   return (
