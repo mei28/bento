@@ -5,11 +5,12 @@ import { menus } from "./data/menus";
 import { Box, Container, Heading, VStack } from "@yamada-ui/react";
 
 const App = () => {
-  const [selectedType, setSelectedType] = useState<string | null>(null);
+  // 型を明示
+  const [selectedType, setSelectedType] = useState<keyof typeof menus | null>(null);
   const [selectedMenu, setSelectedMenu] = useState<any | null>(null);
 
   const handleRouletteResult = () => {
-    const mealTypes = ["meat", "fish", "noodles"];
+    const mealTypes = ["meat", "fish", "noodles"] as const; // 定数アサーション
     const randomType = mealTypes[Math.floor(Math.random() * mealTypes.length)];
     const randomMenu = menus[randomType][Math.floor(Math.random() * menus[randomType].length)];
 
